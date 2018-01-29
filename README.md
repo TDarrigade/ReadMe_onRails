@@ -33,47 +33,56 @@
 
 ## Le Routeurs et les Routes
 
-On est dans `Config/route.rb`
+`Config/route.rb`
 
-#### Les routes c'est les couloirs dans lesquels se balade l'utilisateur.
-Et c'est le routeur qui construit les routes. Imagine une route qui se construit sous tes pas. Des rayonnages qui se remplissent au fur et à mesure que tu marche dans la boutique.
-C'est le routeur qui appelle le controller (le transpalette) qui va appeller le modèle (le carton en BDD) pour ensuite afficher la data en view (le rayonnage).
+#### Les routes Les routes permettent d’interpréter les URL et d’orienter vers les bonnes actions des controlleurs.
+Et c'est le routeur qui construit les routes, Il peut également générer des chemins et des URL.
+C'est le routeur qui appelle le controller, lui va appeller le modèle pour ensuite afficher la data en view ( *visilbe pour l'utilisateur*). c'est dans le fichier `route.rb` que l'on crée par exemple les `resources :articles`. 
 
-Par exemple : L'utilisateur veut aller au rayon "Welcome" donc le routeur va dire `get 'welcome'` au controlleur pour qu'il lui renvoit l'index de welcome `to: 'welcome#index'`  
+*Par exemple* : L'utilisateur veut aller à la page "Welcome" donc le routeur va dire `get 'welcome'` au controlleur pour qu'il lui renvoit l'index de welcome `to: 'welcome#index'`  
   
+`rails generates controller Welcome index`
 
-Note pour plus tard : `rails generates controller Welcome index`
 
+## Les Bases de Données (BDD) (et le Models)
 
-## Les Bases de Données (et le Models)
-
-#### Une BDD c'est un gros excel.
+### Une BDD c'est comme une page excel en ligne.
 Où chaque cellule est une data. Cette data correspond forcément à une rangée et une colonne et est dans une feuille de l'excel.
 
-#### Une BDD relationnelle c'est un excel en 3D.
-**Imagine ça :** Une cellule ne se réfère pas qu'à une colonne et une rangée, mais peut t'envoyer vers une autre feuille de l'excel, avec une autre colonne et une autre rangée. C'est *un nœud*. 
+### Une BDD relationnelle c'est une *BDDception*.
+Une cellule peut t'envoyer vers une autre feuille de l'excel, avec d'autres colonnes et  d'autres rangées. C'est *un nœud*. 
 
 Modeliser une base de donnée :
 
-Créer les différentes feuilles de l'excel. Et 
 
+## GET / POST
 
+"**GET**" signifie que les données de formulaire doivent être codées (par un navigateur) dans une URL, 
+tandis que le "**POST**" signifie que les données de formulaire doivent apparaître dans le body.
+
+Mais la recommandation d'utilisation serait que la méthode "**GET**" soit utilisée lorsque le traitement de formulaire produit le même résultat qu'elle soit exécutée une seule ou plusieurs fois, et dans ces cas seulement. Pour simplifier, nous pourrions dire que "**GET**" est simplement utilisé pour obtenir (récupérer) des données alors que "**POST**" peut impliquer n'importe quoi, comme stocker ou mettre à jour des données, commander un produit ou envoyer un e-mail.
+ 
 
 ## Migration
 
 `rails db:migrate`
 
-La migration ça sert à **modifier** la BDD. C'est à dire :
+La migration sert à **modifier** la BDD. C'est à dire :
 - Créer une table (une feuille excel)
 - Modifier une table (ajout/suppr. de colonne, rangée, cellule)
 - Faire du lien entre les tables.
 
+## Les relations entre les models des BDD
 
-## Create Read Update Destroy CRUD !!
 
-#### C'est là qu'on va permettre d'intéragir avec la BDD par l'interface, et pas ~~en tapant une ligne de commande dans la console~~ !
-Parce qu'on est pas des robots bordel !
+## CRUD = Create Read Update Destroy
 
+#### C'est là qu'on va permettre d'intéragir avec la BDD par l'interface, et pas en tapant une ligne de commande dans la console
+
+- **C**reate, permet de créer un nouvel enregistrement, `POST: /{resources}`
+- **R**ead, permet d'afficher un ou plusieurs enregistrements, `GET: /{resources}` et `GET: /{resources}/:id`
+- **U**pdate, permet de mettre à jour un enregistrement, `PUT: /{resources}/:id`
+- **D**estroy, permet de supprimer un enregistrement, `DELETE: /{resources}/:id`
 
 
 
