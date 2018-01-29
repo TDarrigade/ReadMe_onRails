@@ -24,7 +24,7 @@
 
 **View** : c'est ce que l'utilisateur voit, la maniere dont c'est affiché pour lui. c'est un melange d'HTML et de ruby. C'est le front-end.
 
-**Controller** : C'est l'articulation entre le le *Model* et le *View*, il reagit aux actions de l'utilisateur, ca va chercher les données fornies par le *Model* et les met à disposition de *view*.  
+**Controller** : C'est l'articulation entre le *Model* et le *View*, il reagit aux actions de l'utilisateur, ca va chercher les données fornies par le *Model* et les met à disposition de *view*.  
 
 
 ![Schema d'un MVC On Rails](https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/figures/mvc_detailed.png)
@@ -44,7 +44,7 @@ C'est le routeur qui appelle le controller, lui va appeller le modèle pour ensu
 `rails generates controller Welcome index`
 
 
-## Les Bases de Données (BDD) (et le Models)
+## Les Bases de Données (BDD)
 
 ### Une BDD c'est comme une page excel en ligne.
 Où chaque cellule est une data. Cette data correspond forcément à une rangée et une colonne et est dans une feuille de l'excel.
@@ -74,6 +74,12 @@ La migration sert à **modifier** la BDD. C'est à dire :
 
 ## Les relations entre les models des BDD
 
+Comme je l'ai précisé dans le paragraphe ## Les Bases de Données (BDD), les models peuvent s'imbriquer les une dans les autres.
+
+*Par exemple*: S'il y a 3 models, `users`, `articles`et `comments`, un user peux etre lié à plusieurs articles, et un article peut avoir plusieurs comments
+
+
+## Les fonctions du CRUD
 
 ## CRUD = Create Read Update Destroy
 
@@ -82,7 +88,7 @@ La migration sert à **modifier** la BDD. C'est à dire :
 - **C**reate, permet de créer un nouvel enregistrement, `POST: /{resources}`
 - **R**ead, permet d'afficher un ou plusieurs enregistrements, `GET: /{resources}` et `GET: /{resources}/:id`
 - **U**pdate, permet de mettre à jour un enregistrement, `PUT: /{resources}/:id`
-- **D**estroy, permet de supprimer un enregistrement, `DELETE: /{resources}/:id`
+- **D**estroy, permet de supprimer un enregistrement, `DELETE: /{resources}/:id
 
 
 
