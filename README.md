@@ -35,9 +35,10 @@
 
 `Config/route.rb`
 
-#### Les routes Les routes permettent d’interpréter les URL et d’orienter vers les bonnes actions des controlleurs.
+#### Les routes permettent d’interpréter les URL et d’orienter vers les bonnes actions du controller.
 Et c'est le routeur qui construit les routes, Il peut également générer des chemins et des URL.
-C'est le routeur qui appelle le controller, lui va appeller le modèle pour ensuite afficher la data en view ( *visilbe pour l'utilisateur*). c'est dans le fichier `route.rb` que l'on crée par exemple les `resources :articles`. 
+C'est le routeur qui appelle le controller, lui va appeller le modèle pour ensuite afficher la data en view ( *visilbe pour l'utilisateur*). 
+C'est dans le fichier `route.rb` que l'on crée par exemple les `resources :articles`. 
 
 *Par exemple* : L'utilisateur veut aller à la page "Welcome" donc le routeur va dire `get 'welcome'` au controlleur pour qu'il lui renvoit l'index de welcome `to: 'welcome#index'`  
   
@@ -60,7 +61,9 @@ Modeliser une base de donnée :
 "**GET**" signifie que les données de formulaire doivent être codées (par un navigateur) dans une URL, 
 tandis que le "**POST**" signifie que les données de formulaire doivent apparaître dans le body.
 
-Mais la recommandation d'utilisation serait que la méthode "**GET**" soit utilisée lorsque le traitement de formulaire produit le même résultat qu'elle soit exécutée une seule ou plusieurs fois, et dans ces cas seulement. Pour simplifier, nous pourrions dire que "**GET**" est simplement utilisé pour obtenir (récupérer) des données alors que "**POST**" peut impliquer n'importe quoi, comme stocker ou mettre à jour des données, commander un produit ou envoyer un e-mail.
+Mais la recommandation d'utilisation serait que la méthode "**GET**" soit utilisée lorsque le traitement de formulaire produit le même résultat qu'elle soit exécutée une seule ou plusieurs fois, et dans ces cas seulement. 
+
+Pour simplifier, nous pourrions dire que "**GET**" est simplement utilisé pour obtenir (récupérer) des données alors que "**POST**" peut impliquer n'importe quoi, comme stocker ou mettre à jour des données, commander un produit ou envoyer un e-mail.
  
 
 ## Migration
@@ -74,36 +77,18 @@ La migration sert à **modifier** la BDD. C'est à dire :
 
 ## Les relations entre les models des BDD
 
-Comme je l'ai précisé dans le paragraphe ## Les Bases de Données (BDD), les models peuvent s'imbriquer les une dans les autres.
+Comme je l'ai précisé dans le paragraphe "Les Bases de Données (BDD)", les models peuvent s'imbriquer les une dans les autres.
 
-*Par exemple*: S'il y a 3 models, `users`, `articles`et `comments`, un user peux etre lié à plusieurs articles, et un article peut avoir plusieurs comments
+*Par exemple*: S'il y a 3 models, `users`, `articles`et `comments`, un user peux etre lié à plusieurs articles, et un article peut avoir plusieurs comments.
 
 
 ## Les fonctions du CRUD
 
-## CRUD = Create Read Update Destroy
+### CRUD = Create Read Update Destroy
 
 #### C'est là qu'on va permettre d'intéragir avec la BDD par l'interface, et pas en tapant une ligne de commande dans la console
 
 - **C**reate, permet de créer un nouvel enregistrement, `POST: /{resources}`
 - **R**ead, permet d'afficher un ou plusieurs enregistrements, `GET: /{resources}` et `GET: /{resources}/:id`
 - **U**pdate, permet de mettre à jour un enregistrement, `PUT: /{resources}/:id`
-- **D**estroy, permet de supprimer un enregistrement, `DELETE: /{resources}/:id
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- **D**estroy, permet de supprimer un enregistrement, `DELETE: /{resources}/:i`
